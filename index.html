@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -17,8 +17,9 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </nav>
   </header>
@@ -81,6 +82,34 @@
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
         <span>React</span>
       </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+        <span>C</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+        <span>C++</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+        <span>C#</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+        <span>MySQL</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+        <span>PHP</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" />
+        <span>Swift</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
+        <span>Kotlin</span>
+      </div>
     </div>
   </section>
 
@@ -96,15 +125,15 @@
       <div class="slider-track-wrapper">
         <div class="slider-track">
           <div class="slide">
-            <img src="https://via.placeholder.com/300x200?text=Certificate+1" alt="Certificate 1" />
+            <img class="certificate-img" src="https://via.placeholder.com/300x200?text=Certificate+1" alt="Certificate 1" />
             <p>Certificate in Web Development</p>
           </div>
           <div class="slide">
-            <img src="https://via.placeholder.com/300x200?text=Certificate+2" alt="Certificate 2" />
+            <img class="certificate-img" src="https://via.placeholder.com/300x200?text=Certificate+2" alt="Certificate 2" />
             <p>Certificate in Data Science</p>
           </div>
           <div class="slide">
-            <img src="https://via.placeholder.com/300x200?text=Certificate+3" alt="Certificate 3" />
+            <img class="certificate-img" src="https://via.placeholder.com/300x200?text=Certificate+3" alt="Certificate 3" />
             <p>Certificate in Cloud Computing</p>
           </div>
         </div>
@@ -134,26 +163,13 @@
   </section>
 
   <div class="section-divider"></div>
-  <section id="projects" class="section projects-section">
-    <h2>Projects</h2>
-    <div class="projects-list">
-      <div class="project-item">
-        <h3>Project One</h3>
-        <p>A web app built with React and Node.js.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
-      </div>
-      <div class="project-item">
-        <h3>Project Two</h3>
-        <p>A machine learning project using Python.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
-      </div>
-      <div class="project-item">
-        <h3>Project Three</h3>
-        <p>A mobile app developed with Flutter.</p>
-        <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
-      </div>
-    </div>
-  </section>
+
+  <!-- Modal for enlarged certificate image -->
+  <div id="certificate-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modal-image" />
+    <div id="modal-caption"></div>
+  </div>
 
   <div class="section-divider"></div>
   <section id="contact" class="section contact-section">
@@ -172,3 +188,6 @@
     </form>
   </section>
 
+  <div class="section-divider"></div>
+</body>
+</html>
