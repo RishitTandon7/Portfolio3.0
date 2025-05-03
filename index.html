@@ -34,6 +34,7 @@
       &mdash; Code | Debug | Learn | Repeat &mdash;
     </p>
   </section>
+<br>
 
   <div class="section-divider"></div>
   <section id="education" class="section education-section">
@@ -53,6 +54,11 @@
       </div>
     </div>
   </section>
+
+
+  <br>
+  <br>
+
 
   <div class="section-divider"></div>
   <section id="skills" class="section skills-section">
@@ -116,100 +122,89 @@
   <div class="section-divider"></div>
   <section id="certificates" class="section certificates-section">
     <h2>Certificates & Certifications</h2>
-    <div class="toggle-buttons">
-      <button id="btn-certificates" class="toggle-btn active">Certificates</button>
-      <button id="btn-certifications" class="toggle-btn">Certifications</button>
+    <div class="tab-buttons" role="tablist" aria-label="Certificates and Certifications Tabs">
+      <button id="tab-certificates" class="tab-btn active" aria-selected="true" aria-controls="tab-panel-certificates" role="tab" tabindex="0">Certificates</button>
+      <button id="tab-certifications" class="tab-btn" aria-selected="false" aria-controls="tab-panel-certifications" role="tab" tabindex="-1">Certifications</button>
     </div>
-    <div class="slider" id="certificates-slider">
-      <button class="slider-btn prev-btn">&#10094;</button>
-      <div class="slider-track-wrapper">
-        <div class="slider-track">
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0090.jpg" alt="Certificate 1" />
-            <p>Outstanding Student</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0091.jpg" alt="Won in Singapore, it was an international hackathon and we won 1st place, also received a gold medal in 60 countries " />
-            <p>1st in SUTD Singapore</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0092.jpg" alt="Certificate 3" />
-            <p>Certificate of participation</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0093.jpg" alt="Won in semiconductor project expo, I made a Medicine delivery robot" />
-            <p>1st in semiconductor expo </p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0094.jpg" alt="Won in South India Regional Conclave, I made MedAssist- A medical chatbot" />
-            <p>1st in Regional Conclave</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0095.jpg" alt="1t Runner up in My department's project expo, I made MedAssist- A medical chatbot" />
-            <p>2nd in Project Expo</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0097.jpg" alt="1t Runner up in My department's project expo, I made MedAssist- A medical chatbot" />
-            <p>2nd in SUTD</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0098.jpg" alt="2nd Runner up in BIS hackathon" />
-            <p>3nd in BIS</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0099.jpg" alt="1t Runner up in My department's project expo, I made MedAssist- A medical chatbot" />
-            <p>2nd in SUTD</p>
-          </div>
+    <div id="tab-panel-certificates" class="tab-panel" role="tabpanel" aria-labelledby="tab-certificates">
+      <div class="grid-container">
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0090.jpg" alt="Outstanding Student" />
+          <p>Outstanding Student</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0091.jpg" alt="1st in SUTD Singapore" />
+          <p>1st in SUTD Singapore</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0092.jpg" alt="Certificate of participation" />
+          <p>Certificate of participation</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0093.jpg" alt="1st in semiconductor expo" />
+          <p>1st in semiconductor expo</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0094.jpg" alt="1st in Regional Conclave" />
+          <p>1st in Regional Conclave</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0095.jpg" alt="2nd in Project Expo" />
+          <p>2nd in Project Expo</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0097.jpg" alt="2nd in SUTD" />
+          <p>2nd in SUTD</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0098.jpg" alt="3rd in BIS" />
+          <p>3rd in BIS</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0099.jpg" alt="2nd in SUTD" />
+          <p>2nd in SUTD</p>
         </div>
       </div>
-      <button class="slider-btn next-btn">&#10095;</button>
     </div>
-    <div class="view-all-container" style="text-align:center; margin-top: 1rem;">
-      <a href="all-certificates.html" id="view-all-btn" class="view-all-btn" role="button" tabindex="0">View All Certificates</a>
-    </div>
-    <div class="slider certificates-section" id="certifications-slider" style="display:none;">
-      <button class="slider-btn prev-btn">&#10094;</button>
-      <div class="slider-track-wrapper">
-        <div class="slider-track">
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0103.jpg" alt="Member of ISD lab" />
-            <p>Member of Best lab</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0104.jpg" alt="It was a workshop conducted by Youtube" />
-            <p>ML workshop by Youtube</p>
-          </div>
-          <div class="slide">
-            <img class="certificate-img" src="Certi/IMG-20250502-WA0105.jpg" alt="ML Learning bootcamp conducted by NextGenAI club" />
-            <p>ML workshop by NextGenAI</p>
-          </div>
+    <div id="tab-panel-certifications" class="tab-panel" role="tabpanel" aria-labelledby="tab-certifications" hidden>
+      <div class="grid-container">
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0103.jpg" alt="Member of Best lab" />
+          <p>Member of Best lab</p>
         </div>
-        <div class="slide">
-          <img class="certificate-img" src="Certi/IMG-20250502-WA0107.jpg" alt="ML Learning bootcamp conducted by Flipkart" />
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0104.jpg" alt="ML workshop by Youtube" />
+          <p>ML workshop by Youtube</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0105.jpg" alt="ML workshop by NextGenAI" />
+          <p>ML workshop by NextGenAI</p>
+        </div>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0107.jpg" alt="ML workshop by Flipkart" />
           <p>ML workshop by Flipkart</p>
         </div>
-        <div class="slide">
-          <img class="certificate-img" src="Certi/IMG-20250502-WA0108.jpg" alt="Got to learn about my outer space tools" />
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0108.jpg" alt="Outer Space workshop by Cosmic Web" />
           <p>Outer Space workshop by Cosmic Web</p>
         </div>
-        <div class="slide">
-          <img class="certificate-img" src="Certi/IMG-20250502-WA0109.jpg" alt="cybersecurity workshop conducted by HackTheBox" />
-          <p>cybersecurity workshop</p>
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0109.jpg" alt="Cybersecurity workshop" />
+          <p>Cybersecurity workshop</p>
         </div>
-        <div class="slide">
-          <img class="certificate-img" src="Certi/IMG-20250502-WA0110.jpg" alt="Python Certification by Udemy" />
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0110.jpg" alt="Python Certification" />
           <p>Python Certification</p>
         </div>
-        <div class="slide">
-          <img class="certificate-img" src="Certi/IMG-20250502-WA0111.jpg" alt="GitHub workshop conducted by AlexaDeveloper Club" />
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0111.jpg" alt="GitHub Certification" />
           <p>GitHub Certification</p>
         </div>
-        <div class="slide">
-          <img class="certificate-img" src="Certi/IMG-20250502-WA0112.jpg" alt="Ethical Hacking Certification by Udemy" />
+        <div class="grid-item">
+          <img class="certificate-img" src="Certi/IMG-20250502-WA0112.jpg" alt="Ethical Hacking Certification" />
           <p>Ethical Hacking Certification</p>
         </div>
       </div>
-      <button class="slider-btn next-btn">&#10095;</button>
     </div>
   </section>
 
