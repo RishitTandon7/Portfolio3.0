@@ -136,7 +136,6 @@ nav {
 }
 
 .education-section::before {
-  content: "Education";
   position: absolute;
   top: -1.5rem;
   left: 2rem;
