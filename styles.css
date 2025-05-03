@@ -1,3 +1,4 @@
+
 /* General styles */
 body {
   font-family: 'Fira Code', monospace, monospace;
@@ -971,11 +972,32 @@ nav {
   box-shadow: 0 0 8px 2px #ff6600;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.project-item:hover::after {
+  left: 100%;
 }
 
 .project-item:hover {
   box-shadow: 0 0 14px 4px #ff6600;
   color: #ff6600;
+  transform: scale(1.05);
 }
 
 .project-item h3 {
@@ -1000,6 +1022,142 @@ nav {
   text-decoration: underline;
 }
 
+/* Custom theme for Ultron project */
+.project-item.ultron-theme {
+  background-color: rgba(0, 102, 204, 0.15);
+  box-shadow: 0 0 10px 2px #0066cc;
+  color: rgba(0, 102, 204, 0.85);
+}
+
+.project-item.ultron-theme:hover {
+  box-shadow: 0 0 14px 4px #0066cc;
+  color: #0066cc;
+}
+
+.project-item.ultron-theme a {
+  color: rgba(0, 102, 204, 0.85);
+}
+
+.project-item.ultron-theme a:hover,
+.project-item.ultron-theme a:focus {
+  color: #004080;
+  text-decoration: underline;
+}
+
+/* Custom theme for KisanVikas project */
+.project-item.kisanvikas-theme {
+  background-color: rgba(34, 139, 34, 0.15);
+  box-shadow: 0 0 10px 2px #228b22;
+  color: rgba(34, 139, 34, 0.85);
+}
+
+.project-item.kisanvikas-theme:hover {
+  box-shadow: 0 0 14px 4px #228b22;
+  color: #228b22;
+}
+
+.project-item.kisanvikas-theme a {
+  color: rgba(34, 139, 34, 0.85);
+}
+
+.project-item.kisanvikas-theme a:hover,
+.project-item.kisanvikas-theme a:focus {
+  color: #145214;
+  text-decoration: underline;
+}
+
+/* Custom theme for MedAssist project */
+.project-item.medassist-theme {
+  background-color: rgba(128, 0, 128, 0.15);
+  box-shadow: 0 0 10px 2px #800080;
+  color: rgba(128, 0, 128, 0.85);
+}
+
+.project-item.medassist-theme:hover {
+  box-shadow: 0 0 14px 4px #800080;
+  color: #800080;
+}
+
+.project-item.medassist-theme a {
+  color: rgba(128, 0, 128, 0.85);
+}
+
+.project-item.medassist-theme a:hover,
+.project-item.medassist-theme a:focus {
+  color: #4b004b;
+  text-decoration: underline;
+}
+
+/* Custom theme for CineVerse project */
+.project-item.cineverse-theme {
+  background-color: rgba(0, 102, 102, 0.15);
+  box-shadow: 0 0 10px 2px #006666;
+  color: rgba(0, 102, 102, 0.85);
+}
+
+.project-item.cineverse-theme:hover {
+  box-shadow: 0 0 14px 4px #006666;
+  color: #004d4d;
+}
+
+.project-item.cineverse-theme a {
+  color: rgba(0, 102, 102, 0.85);
+}
+
+.project-item.cineverse-theme a:hover,
+.project-item.cineverse-theme a:focus {
+  color: #003333;
+  text-decoration: underline;
+}
+
+.view-all-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.view-all-btn {
+  display: inline-block;
+  background-color: #ff6600;
+  color: #090d00;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.7);
+  user-select: none;
+}
+
+.view-all-btn:hover,
+.view-all-btn:focus {
+  background-color: #ff8533;
+  color: #090d00;
+  outline: none;
+  box-shadow: 0 0 20px #ff8533;
+}
+
+/* Custom theme for Prasad project */
+.project-item.prasad-theme {
+  background-color: rgba(255, 140, 0, 0.15);
+  box-shadow: 0 0 10px 2px #ff8c00;
+  color: rgba(255, 140, 0, 0.85);
+}
+
+.project-item.prasad-theme:hover {
+  box-shadow: 0 0 14px 4px #ff8c00;
+  color: #cc7000;
+}
+
+.project-item.prasad-theme a {
+  color: rgba(255, 140, 0, 0.85);
+}
+
+.project-item.prasad-theme a:hover,
+.project-item.prasad-theme a:focus {
+  color: #995c00;
+  text-decoration: underline;
+}
+
 /* Contact Section */
 .contact-section {
   background: transparent;
@@ -1014,8 +1172,51 @@ nav {
   display: flex;
   flex-direction: column;
   max-width: 450px;
-  margin: 0 auto;
+  margin: 100 auto;
   gap: 1.25rem;
+}
+
+.social-bar {
+  background-color: #fc610d5f;
+  padding: 0.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons a svg {
+  width: 40px;
+  height: 40px;
+  fill: #ffffff;
+  transition: fill 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icons a.github-icon svg {
+  background-color: #333333;
+  border-radius: 5px;
+  padding: 4px;
+  transition: background-color 0.3s ease-in;
+}
+
+.social-icons a.github-icon svg:hover,
+.social-icons a.github-icon svg:focus {
+  background-color: #ff6600;
+  fill: #ffffff;
+  transform: scale(2);
+  outline: none;
+}
+
+.social-icons a svg:hover,
+.social-icons a svg:focus {
+  fill: #ff6600;
+  transform: scale(1.1);
+  outline: none;
 }
 
 .contact-section label {
@@ -1315,7 +1516,7 @@ footer {
   }
 
   header {
-    background-color: #090d00;
+    background-color: #00080d;
     box-shadow: 0 2px 8px rgba(255, 102, 0, 0.5);
   }
 

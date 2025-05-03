@@ -1,0 +1,64 @@
+.view-all-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #e0e6f8;
+  font-weight: 700;
+  padding: 0.85rem 3.5rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
+  box-shadow: 0 6px 20px rgba(30, 60, 114, 0.7);
+  user-select: none;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 2px solid rgba(224, 230, 248, 0.3);
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(30, 60, 114, 0.8));
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-all-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent 70%);
+  transform: rotate(45deg);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.view-all-btn:hover::before,
+.view-all-btn:focus::before {
+  transform: rotate(45deg) translate(20%, 20%);
+}
+
+.view-all-btn:hover,
+.view-all-btn:focus {
+  background: linear-gradient(135deg, #2a5298, #1e3c72);
+  box-shadow: 0 0 30px 10px rgba(30, 60, 114, 0.9), 0 0 50px 20px rgba(42, 82, 152, 0.8);
+  outline: none;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 15px rgba(30, 60, 114, 1));
+  animation: sophisticatedPulse 3s ease-in-out infinite;
+  color: #f0f4ff;
+  z-index: 2;
+}
+
+@keyframes sophisticatedPulse {
+  0%, 100% {
+    box-shadow: 0 0 30px 10px rgba(30, 60, 114, 0.9), 0 0 50px 20px rgba(42, 82, 152, 0.8);
+    transform: scale(1.12);
+  }
+  50% {
+    box-shadow: 0 0 45px 15px rgba(30, 60, 114, 1), 0 0 70px 30px rgba(42, 82, 152, 1);
+    transform: scale(1.18);
+  }
+}

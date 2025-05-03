@@ -1,107 +1,137 @@
-// Tab switching logic for certificates and certifications tabs
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('certificate-modal');
-  const modalImg = document.getElementById('modal-image');
-  const modalCaption = document.getElementById('modal-caption');
-  const modalClose = document.querySelector('.modal-close');
+  // Create full screen animation overlay element
+  const animationOverlay = document.createElement('div');
+  animationOverlay.id = 'animation-overlay';
+  animationOverlay.style.position = 'fixed';
+  animationOverlay.style.top = '0';
+  animationOverlay.style.left = '0';
+  animationOverlay.style.width = '100vw';
+  animationOverlay.style.height = '100vh';
+  animationOverlay.style.backgroundColor = '#ff6600';
+  animationOverlay.style.zIndex = '9999';
+  animationOverlay.style.display = 'none';
+  animationOverlay.style.justifyContent = 'center';
+  animationOverlay.style.alignItems = 'center';
+  animationOverlay.style.color = '#090d00';
+  animationOverlay.style.fontSize = '3rem';
+  animationOverlay.style.fontWeight = 'bold';
+  animationOverlay.style.animation = 'fadeInOut 2s ease forwards';
+  animationOverlay.textContent = 'Loading Project...';
+  document.body.appendChild(animationOverlay);
 
-  // Function to show modal with fade-in animation
-  function showModal(img) {
-    modalImg.src = img.src;
-    // Fix text of the image: capitalize each word in alt text
-    modalCaption.textContent = img.alt.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    modal.classList.add('show');
-  }
+  // Define keyframes for fadeInOut animation
+  const styleSheet = document.createElement('style');
+  styleSheet.type = 'text/css';
+  styleSheet.innerText = `
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      25% { opacity: 1; }
+      75% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  `;
+  document.head.appendChild(styleSheet);
 
-  // Function to hide modal with fade-out animation
-  function hideModal() {
-    modal.classList.remove('show');
-  }
-
-  // Open modal when clicking on certificate image
-  document.querySelectorAll('.certificate-img').forEach(img => {
-    img.addEventListener('click', () => {
-      showModal(img);
+  // Attach click event listeners to project links
+  const projectLinks = document.querySelectorAll('.project-link');
+  projectLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = link.href;
+      animationOverlay.style.display = 'flex';
+      // After animation duration, redirect to GitHub URL
+      setTimeout(() => {
+        window.location.href = url;
+      }, 2000); // 2 seconds animation duration
     });
   });
 
-  // Close modal when clicking on close button
-  modalClose.addEventListener('click', () => {
-    hideModal();
+  // Certificates and Certifications toggle functionality
+  const tabCertificatesBtn = document.getElementById('tab-certificates');
+  const tabCertificationsBtn = document.getElementById('tab-certifications');
+  const tabPanelCertificates = document.getElementById('tab-panel-certificates');
+  const tabPanelCertifications = document.getElementById('tab-panel-certifications');
+
+  function activateTab(selectedBtn, selectedPanel, otherBtn, otherPanel) {
+    selectedBtn.classList.add('active');
+    selectedBtn.setAttribute('aria-selected', 'true');
+    selectedBtn.setAttribute('tabindex', '0');
+    otherBtn.classList.remove('active');
+    otherBtn.setAttribute('aria-selected', 'false');
+    otherBtn.setAttribute('tabindex', '-1');
+
+    selectedPanel.removeAttribute('hidden');
+    otherPanel.setAttribute('hidden', '');
+  }
+
+  tabCertificatesBtn.addEventListener('click', () => {
+    activateTab(tabCertificatesBtn, tabPanelCertificates, tabCertificationsBtn, tabPanelCertifications);
   });
 
-  // Close modal when clicking outside the image
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      hideModal();
-    }
+  tabCertificationsBtn.addEventListener('click', () => {
+    activateTab(tabCertificationsBtn, tabPanelCertifications, tabCertificatesBtn, tabPanelCertificates);
   });
 
-  // Close modal on pressing Escape key
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.classList.contains('show')) {
-      hideModal();
+  // Hide/show header on scroll down/up
+  let lastScrollTop = 0;
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // Scrolling down - hide header
+      header.style.transform = 'translateY(-100%)';
+      header.style.transition = 'transform 0.3s ease';
+    } else {
+      // Scrolling up - show header
+      header.style.transform = 'translateY(0)';
+      header.style.transition = 'transform 0.3s ease';
     }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
   });
 
-  // Contact form submission handling
-  const contactForm = document.getElementById('contact-form');
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    // Collect form data
-    const formData = {
-      name: contactForm.name.value.trim(),
-      email: contactForm.email.value.trim(),
-      message: contactForm.message.value.trim(),
-    };
-
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill in all fields.');
-      return;
-    }
-
-    // Simple email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    // Simulate form submission (e.g., send to server or email service)
-    // For now, just show a success message
-    alert('Thank you for your message, ' + formData.name + '! I will get back to you soon.');
-
-    // Reset form
-    contactForm.reset();
+  // Highlight current nav link and center it in nav bar
+  const navLinks = document.querySelectorAll('nav ul.nav-links li a');
+  const sections = Array.from(navLinks).map(link => {
+    const id = link.getAttribute('href').substring(1);
+    return document.getElementById(id);
   });
+  const navContainer = document.querySelector('nav ul.nav-links');
 
-  // Tab switching logic for certificates and certifications tabs
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
+  function getCurrentSection() {
+    const scrollPos = window.scrollY + window.innerHeight / 2;
+    let currentIndex = 0;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i] && sections[i].offsetTop <= scrollPos) {
+        currentIndex = i;
+      }
+    }
+    return currentIndex;
+  }
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Deactivate all tabs and hide all panels
-      tabButtons.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
-        btn.setAttribute('tabindex', '-1');
-      });
-      tabPanels.forEach(panel => {
-        panel.hidden = true;
-      });
+  function centerNavLink(link) {
+    const navRect = navContainer.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    const offset = linkRect.left - navRect.left - (navRect.width / 2) + (linkRect.width / 2);
+    navContainer.scrollBy({ left: offset, behavior: 'smooth' });
+  }
 
-      // Activate clicked tab and show corresponding panel
-      button.classList.add('active');
-      button.setAttribute('aria-selected', 'true');
-      button.setAttribute('tabindex', '0');
-      const panelId = button.getAttribute('aria-controls');
-      const panel = document.getElementById(panelId);
-      if (panel) {
-        panel.hidden = false;
+  window.addEventListener('scroll', () => {
+    const currentIndex = getCurrentSection();
+    navLinks.forEach((link, index) => {
+      if (index === currentIndex) {
+        link.classList.add('active');
+        centerNavLink(link);
+      } else {
+        link.classList.remove('active');
       }
     });
   });
+
+  // Initial highlight and centering on page load
+  const initialIndex = getCurrentSection();
+  if (navLinks[initialIndex]) {
+    navLinks[initialIndex].classList.add('active');
+    centerNavLink(navLinks[initialIndex]);
+  }
 });
