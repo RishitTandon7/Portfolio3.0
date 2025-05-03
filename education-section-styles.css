@@ -13,7 +13,7 @@
 }
 
 .education-section::before {
-  content: "Education";
+
   position: absolute;
   top: 2rem;
   left: 5rem;
