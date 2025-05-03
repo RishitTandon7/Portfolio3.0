@@ -1188,7 +1188,6 @@ footer {
   }
 
   .education-section::before {
-    content: "Education";
     position: absolute;
     top: 1rem;
     left: 1rem;
